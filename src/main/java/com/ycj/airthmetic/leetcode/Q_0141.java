@@ -1,0 +1,74 @@
+package com.ycj.airthmetic.leetcode;
+
+import java.util.HashSet;
+
+import com.ycj.airthmetic.utils.MethodExecuteTimeUtils;
+
+/**
+ * Q_0141 环形链表 https://leetcode-cn.com/problems/linked-list-cycle/
+ */
+public class Q_0141 {
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
+    }
+
+    // 快慢指针 环形会相遇
+    public static boolean hasCycle1(ListNode head) {
+        if (head == null || head.next == null) {
+            return false;
+        } else {
+            ListNode slow = head;
+            ListNode fast = head.next;
+            while (fast != null && fast.next != null) {
+                if (slow == fast) {
+                    return true;
+                }
+                slow = slow.next;
+                fast = fast.next.next;
+            }
+            return false;
+        }
+    }
+
+    // HashSet
+    public static boolean hasCycle2(ListNode head) {
+        if (head == null || head.next == null) {
+            return false;
+        } else {
+            HashSet<ListNode> set = new HashSet<>();
+            set.add(head);
+            while (head.next != null ) {
+                if (set.contains(head.next)) {
+                    return true;
+                }
+                set.add(head.next);
+                head=head.next;
+            }
+            return false;
+        }
+    }
+
+    public static void main(String[] args) {
+        ListNode node4 = new ListNode(4);
+        ListNode node5 = new ListNode(5);
+        ListNode node1 = new ListNode(1);
+        ListNode node9 = new ListNode(9);
+        node4.next = node5;
+        node5.next = node1;
+        node1.next = node9;
+        node9.next = node5;
+
+        MethodExecuteTimeUtils.printRunTime(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println( hasCycle2(node4));
+            }
+        });
+    }
+}
