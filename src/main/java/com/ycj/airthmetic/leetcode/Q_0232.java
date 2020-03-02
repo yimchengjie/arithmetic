@@ -58,7 +58,6 @@ public class Q_0232 {
         MethodExecuteTimeUtils.printRunTime(new Runnable(){
             @Override
             public void run() {
-                // TODO Auto-generated method stub
                 Q_0232 q=new Q_0232();
                 q.push(1);
                 q.push(2);
