@@ -36,7 +36,16 @@ public class Q_0141 {
         }
     }
 
-    // HashSet
+    /**
+     * HashSet方法
+     * @param head
+     * @return
+     * HashSet中不能有重复的值
+     * 只需要遍历一遍链表,每个节点都存入HashSet
+     *      如果出现空,说明链表无环,尾结点指向null
+     *      如果出现节点在HashSet中存在,表面是第二次添加该节点, 说明有环
+     * 他的运行次数就是链表所有节点的个数
+     */
     public static boolean hasCycle2(ListNode head) {
         if (head == null || head.next == null) {
             return false;
