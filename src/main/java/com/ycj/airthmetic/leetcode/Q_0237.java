@@ -1,5 +1,6 @@
 package com.ycj.airthmetic.leetcode;
 
+import com.ycj.airthmetic.utils.ListNode;
 import com.ycj.airthmetic.utils.MethodExecuteTimeUtils;
 
 /**
@@ -7,14 +8,6 @@ import com.ycj.airthmetic.utils.MethodExecuteTimeUtils;
  * https://leetcode-cn.com/problems/delete-node-in-a-linked-list/
  */
 public class Q_0237 {
-
-    public static class ListNode{
-        int val;
-        ListNode next;
-        ListNode(int x) { 
-            val = x; 
-        }
-    }
 
     public static void deleteNode(ListNode node) {
         node.val=node.next.val;

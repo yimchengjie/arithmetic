@@ -2,6 +2,7 @@ package com.ycj.airthmetic.leetcode;
 
 import java.util.Stack;
 
+import com.ycj.airthmetic.utils.ListNode;
 import com.ycj.airthmetic.utils.MethodExecuteTimeUtils;
 
 /**
@@ -9,14 +10,6 @@ import com.ycj.airthmetic.utils.MethodExecuteTimeUtils;
  * https://leetcode-cn.com/problems/reverse-linked-list/
  */
 public class Q_0206 {
-
-    public static class ListNode{
-        int val;
-        ListNode next;
-        ListNode(int x) { 
-            val = x; 
-        }
-    }
 
     // 递归
     public static ListNode reverseList(ListNode head) {

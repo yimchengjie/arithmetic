@@ -2,21 +2,13 @@ package com.ycj.airthmetic.leetcode;
 
 import java.util.HashSet;
 
+import com.ycj.airthmetic.utils.ListNode;
 import com.ycj.airthmetic.utils.MethodExecuteTimeUtils;
 
 /**
  * Q_0141 环形链表 https://leetcode-cn.com/problems/linked-list-cycle/
  */
 public class Q_0141 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     // 快慢指针 环形会相遇
     public static boolean hasCycle1(ListNode head) {
