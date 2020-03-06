@@ -67,9 +67,9 @@ public class Q_0994 {
     }
 
     public static void main(String[] args) {
-        // int[][] test = new int[][] { { 2, 1, 1 }, { 1, 1, 0 }, { 0, 1, 1 } };
+        int[][] test = new int[][] { { 2, 1, 1 }, { 1, 1, 0 }, { 0, 1, 1 } };
         // int[][] test = new int[][] { { 2, 1, 1 }, { 0, 1, 1 }, { 1, 0, 1 } };
-        int[][] test = new int[][] { {0,2} };
+        // int[][] test = new int[][] { {0,2} };
         MethodExecuteTimeUtils.printRunTime(new Runnable() {
             @Override
             public void run() {
