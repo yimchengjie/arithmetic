@@ -23,13 +23,10 @@ public class Q_1103 {
     }
 
     public static void main(String[] args) {
-        MethodExecuteTimeUtils.printRunTime(new Runnable() {
-            @Override
-            public void run() {
-                int[] answer = distributeCandies(60, 4);
-                for (int i = 0; i < answer.length; i++) {
-                    System.out.print(answer[i] + " ");
-                }
+        MethodExecuteTimeUtils.printRunTime(() -> {
+            int[] answer = distributeCandies(60, 4);
+            for (int i = 0; i < answer.length; i++) {
+                System.out.print(answer[i] + " ");
             }
         });
     }

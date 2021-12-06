@@ -70,11 +70,6 @@ public class Q_0994 {
         int[][] test = new int[][] { { 2, 1, 1 }, { 1, 1, 0 }, { 0, 1, 1 } };
         // int[][] test = new int[][] { { 2, 1, 1 }, { 0, 1, 1 }, { 1, 0, 1 } };
         // int[][] test = new int[][] { {0,2} };
-        MethodExecuteTimeUtils.printRunTime(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println(orangesRotting(test));
-            }
-        });
+        MethodExecuteTimeUtils.printRunTime(() -> System.out.println(orangesRotting(test)));
     }
 }

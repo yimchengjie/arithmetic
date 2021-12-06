@@ -42,11 +42,6 @@ public class Q_0203 {
         listNode1.next.next.next.next.next = new ListNode(5);
         listNode1.next.next.next.next.next.next = new ListNode(6);
         System.out.println(listNode1);
-        MethodExecuteTimeUtils.printRunTime(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println(removeElements(listNode1, 6));
-            }
-        });
+        MethodExecuteTimeUtils.printRunTime(() -> System.out.println(removeElements(listNode1, 6)));
     }
 }

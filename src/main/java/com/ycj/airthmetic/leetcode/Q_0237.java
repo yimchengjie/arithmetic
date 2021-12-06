@@ -24,11 +24,6 @@ public class Q_0237 {
         node1.next=node9;
         node9.next=null;
         
-        MethodExecuteTimeUtils.printRunTime(new Runnable(){
-            @Override
-            public void run() {
-                deleteNode(node1);
-            }
-        });
+        MethodExecuteTimeUtils.printRunTime(() -> deleteNode(node1));
     }
 }

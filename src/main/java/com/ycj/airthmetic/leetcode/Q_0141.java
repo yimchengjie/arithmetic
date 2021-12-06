@@ -65,11 +65,6 @@ public class Q_0141 {
         node1.next = node9;
         node9.next = node5;
 
-        MethodExecuteTimeUtils.printRunTime(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println( hasCycle2(node4));
-            }
-        });
+        MethodExecuteTimeUtils.printRunTime(() -> System.out.println( hasCycle2(node4)));
     }
 }

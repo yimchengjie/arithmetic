@@ -37,11 +37,6 @@ public class Q_0876 {
         listNode1.next.next.next.next.next = new ListNode(6);
         listNode1.next.next.next.next.next.next = new ListNode(7);
         System.out.println(listNode1);
-        MethodExecuteTimeUtils.printRunTime(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println(middleNode(listNode1));
-            }
-        });
+        MethodExecuteTimeUtils.printRunTime(() -> System.out.println(middleNode(listNode1)));
     }
 }

@@ -47,18 +47,15 @@ public class Q_0225 {
     }
 
     public static void main(String[] args) {
-        MethodExecuteTimeUtils.printRunTime(new Runnable(){
-            @Override
-            public void run() {
-                Q_0225 obj = new Q_0225();
-                obj.push(3);
-                int param_3 = obj.top();
-                System.out.println(param_3);
-                int param_2 = obj.pop();
-                System.out.println(param_2);
-                boolean param_4 = obj.empty();
-                System.out.println(param_4);
-            }
+        MethodExecuteTimeUtils.printRunTime(() -> {
+            Q_0225 obj = new Q_0225();
+            obj.push(3);
+            int param_3 = obj.top();
+            System.out.println(param_3);
+            int param_2 = obj.pop();
+            System.out.println(param_2);
+            boolean param_4 = obj.empty();
+            System.out.println(param_4);
         });
     }
 }

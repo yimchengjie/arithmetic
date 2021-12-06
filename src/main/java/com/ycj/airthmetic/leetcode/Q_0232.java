@@ -55,16 +55,13 @@ public class Q_0232 {
     }
 
     public static void main(String[] args) {
-        MethodExecuteTimeUtils.printRunTime(new Runnable(){
-            @Override
-            public void run() {
-                Q_0232 q=new Q_0232();
-                q.push(1);
-                q.push(2);
-                System.out.println(q.peek());
-                System.out.println(q.pop());
-                System.out.println(q.empty());
-            }
+        MethodExecuteTimeUtils.printRunTime(() -> {
+            Q_0232 q=new Q_0232();
+            q.push(1);
+            q.push(2);
+            System.out.println(q.peek());
+            System.out.println(q.pop());
+            System.out.println(q.empty());
         });
     }
     

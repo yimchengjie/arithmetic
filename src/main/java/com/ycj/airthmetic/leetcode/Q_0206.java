@@ -71,12 +71,7 @@ public class Q_0206 {
         node1.next=node9;
         node9.next=null;
 
-        MethodExecuteTimeUtils.printRunTime(new Runnable(){
-            @Override
-            public void run() {
-                System.out.println(reverseList1(node4).val);
-            }
-        });
+        MethodExecuteTimeUtils.printRunTime(() -> System.out.println(reverseList1(node4).val));
     }
     
 }

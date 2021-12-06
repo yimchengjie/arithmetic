@@ -32,8 +32,6 @@ public class Q_0121 {
 
     public static void main(String[] args) {
         int[] question=new int[]{7,1,5,3,6,4};
-        MethodExecuteTimeUtils.printRunTime(()->{
-            System.out.println(maxProfit(question));
-        });
+        MethodExecuteTimeUtils.printRunTime(()-> System.out.println(maxProfit(question)));
     }
 }

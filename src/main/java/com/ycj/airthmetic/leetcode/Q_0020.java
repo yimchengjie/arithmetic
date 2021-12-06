@@ -40,11 +40,6 @@ public class Q_0020 {
     }
 
     public static void main(String[] args) {
-        MethodExecuteTimeUtils.printRunTime(new Runnable(){
-            @Override
-            public void run() {
-                System.out.println(isValid("["));
-            }
-        });
+        MethodExecuteTimeUtils.printRunTime(() -> System.out.println(isValid("[")));
     }
 }

@@ -49,12 +49,6 @@ public class Q_0002 {
         System.out.println(listNode2);
 
 
-        MethodExecuteTimeUtils.printRunTime(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println(addTwoNumbers(listNode1, listNode2));
-
-            }
-        });
+        MethodExecuteTimeUtils.printRunTime(() -> System.out.println(addTwoNumbers(listNode1, listNode2)));
     }
 }
