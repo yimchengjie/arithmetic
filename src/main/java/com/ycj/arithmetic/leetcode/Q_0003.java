@@ -5,7 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Q_0003
+ * Q_0003 无重复字符的最长子串
+ * https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
  *
  * @author yanchengjie
  * @version $Id: Q_0003.java, v 0.1 2021/12/6 21:10 avalanche Exp$
