@@ -3,12 +3,12 @@ package com.ycj.arithmetic.leetcode;
 import java.util.Arrays;
 
 /**
- * Q_6174
+ * Q_2398. 预算内最多的机器人数目
  *
  * @author yanchengjie
  * @version : Q_6174.java, v 0.1 2022/9/3 23:03 yanchengjie Exp$
  */
-public class Q_6174 {
+public class Q_2398 {
 
 	public static int maximumRobots(int[] chargeTimes, int[] runningCosts, long budget) {
 		int left = 0, right = 0;
