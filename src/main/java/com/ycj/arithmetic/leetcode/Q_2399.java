@@ -1,12 +1,12 @@
 package com.ycj.arithmetic.leetcode;
 
 /**
- * Q_6167
+ * Q_2399. 检查相同字母间的距离
  *
  * @author yanchengjie
  * @version : Q_6167.java, v 0.1 2022/9/4 10:34 yanchengjie Exp$
  */
-public class Q_6167 {
+public class Q_2399 {
 	public static boolean checkDistances(String s, int[] distance) {
 		char[] chars = s.toCharArray();
 		for (int i = 0; i < distance.length; i++) {
