@@ -3,12 +3,12 @@ package com.ycj.arithmetic.leetcode;
 import java.util.Arrays;
 
 /**
- * Q_6169
+ * Q_2401. 最长优雅子数组
  *
  * @author yanchengjie
  * @version : Q_6169.java, v 0.1 2022/9/4 10:51 yanchengjie Exp$
  */
-public class Q_6169 {
+public class Q_2401 {
 	public static int longestNiceSubarray(int[] nums) {
 		int n=nums.length;
 		int max = 1;
