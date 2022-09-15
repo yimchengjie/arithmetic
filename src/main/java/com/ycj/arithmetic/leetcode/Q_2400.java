@@ -1,12 +1,12 @@
 package com.ycj.arithmetic.leetcode;
 
 /**
- * Q_6168
+ * Q_2400. 恰好移动 k 步到达某一位置的方法数目
  *
  * @author yanchengjie
  * @version : Q_6168.java, v 0.1 2022/9/4 10:46 yanchengjie Exp$
  */
-public class Q_6168 {
+public class Q_2400 {
 
 	public static int numberOfWays(int startPos, int endPos, int k) {
 		return 0;
