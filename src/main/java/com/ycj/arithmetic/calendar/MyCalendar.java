@@ -3,7 +3,6 @@ package com.ycj.arithmetic.calendar;
 import cn.hutool.core.io.resource.ResourceUtil;
 import com.ycj.arithmetic.utils.ImageUtil;
 import java.awt.image.BufferedImage;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -22,13 +21,13 @@ public class MyCalendar {
 	private static Integer day;
 
 	private static String[] header = new String[]{
-			"pic/sun.png",
-			"pic/mon.png",
-			"pic/tue.png",
-			"pic/wed.png",
-			"pic/thu.png",
-			"pic/fri.png",
-			"pic/sat.png",
+			"pic/week0.png",
+			"pic/week1.png",
+			"pic/week2.png",
+			"pic/week3.png",
+			"pic/week4.png",
+			"pic/week5.png",
+			"pic/week6.png",
 	};
 
 	public static BufferedImage generateCalendar(int y, int m, int day, boolean water) {
@@ -64,7 +63,7 @@ public class MyCalendar {
 		BufferedImage oneWeek = null;
 		for (int i = 1; i <= dayOfMonth; i++) {
 			BufferedImage aday = ImageUtil.readFromPath(
-					ResourceUtil.getResource("pic/days/" + 5 + ".png").getPath());
+					ResourceUtil.getResource("pic/days/" + i + ".png").getPath());
 			if (i == day) {
 				aday = ImageUtil.overMerge(aday, ImageUtil.readFromPath(
 						ResourceUtil.getResource("pic/select.png").getPath()));
@@ -106,8 +105,11 @@ public class MyCalendar {
 
 
 	public static void main(String[] args) {
-		BufferedImage image = generateCalendar(2023, 5, 6, false);
-		ImageUtil.writeOut(image, "E:\\ycjCoding\\arithmetic\\src\\main\\resources\\pic\\out\\1.png");
+		int year = 2023;
+		int month = 5;
+		int day = 0;
+		BufferedImage image = generateCalendar(year, month, day, false);
+		ImageUtil.writeOut(image, "/home/yanchengjie/ycjCoding/arithmetic/src/main/resources/pic/out/"+String.format("%s-%s-%s",year, month, day)+".png");
 	}
 
 }

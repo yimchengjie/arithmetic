@@ -5,27 +5,29 @@ import static java.awt.Image.SCALE_SMOOTH;
 import cn.hutool.core.img.ImgUtil;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Transparency;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 import javax.imageio.ImageIO;
 import net.coobird.thumbnailator.Thumbnails;
-import net.coobird.thumbnailator.filters.Watermark;
 import net.coobird.thumbnailator.geometry.Positions;
 
 public class ImageUtil {
 
     public static BufferedImage readFromPath(String path){
         BufferedImage img = ImgUtil.read(path);
-        img = ImgUtil.toBufferedImage(ImgUtil.scale(img,256,160));
-        BufferedImage bufImg = new BufferedImage(img.getWidth(), img.getHeight(), BufferedImage.TYPE_INT_RGB);
+        Image image = ImgUtil.scale(img, 504, 450);
+        img = ImgUtil.toBufferedImage(image,BufferedImage.TYPE_INT_ARGB);
+        return png(img);
+    }
+
+    public static BufferedImage png(BufferedImage img){
+        BufferedImage bufImg = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics = bufImg.createGraphics();
         bufImg = graphics.getDeviceConfiguration()
-                .createCompatibleImage(img.getWidth(), img.getHeight(), Transparency.TRANSLUCENT);
+                .createCompatibleImage(img.getWidth(null), img.getHeight(null), Transparency.TRANSLUCENT);
         graphics = bufImg.createGraphics();
         graphics.drawImage(img, 0, 0, null);
         return bufImg;
@@ -34,15 +36,15 @@ public class ImageUtil {
     public static BufferedImage readFromPath(String path, int width, int height){
         BufferedImage read;
         read = ImgUtil.read(path);
-        return ImgUtil.toBufferedImage(read.getScaledInstance(width, height, SCALE_SMOOTH));
+        return png(ImgUtil.toBufferedImage(read.getScaledInstance(width, height, SCALE_SMOOTH), BufferedImage.TYPE_INT_ARGB));
     }
 
     public static BufferedImage hengxiang(BufferedImage pre, BufferedImage next) {
-        return mergeBufferedImage(pre, next, 0);
+        return png(mergeBufferedImage(pre, next, 0));
     }
 
     public static BufferedImage shuxiang(BufferedImage pre, BufferedImage next) {
-        return mergeBufferedImage(pre, next, 1);
+        return png(mergeBufferedImage(pre, next, 1));
     }
 
     private static BufferedImage mergeBufferedImage(BufferedImage pre, BufferedImage next, int type) {
@@ -56,14 +58,14 @@ public class ImageUtil {
             dstWidth = pre.getWidth();
             dstHeight = pre.getHeight()+ next.getHeight();
         }
-        BufferedImage imageNew = new BufferedImage(dstWidth, dstHeight, BufferedImage.TYPE_INT_RGB);
+        BufferedImage imageNew = new BufferedImage(dstWidth, dstHeight, BufferedImage.TYPE_INT_ARGB);
         imageNew.setRGB(0, 0, pre.getWidth(), pre.getHeight(), preRgb, 0, pre.getWidth());
         if (type == 0) {
             imageNew.setRGB(pre.getWidth(), 0, next.getWidth(), next.getHeight(), nextRgb, 0, next.getWidth());
         }else {
             imageNew.setRGB(0, pre.getHeight(), next.getWidth(), next.getHeight(), nextRgb, 0, next.getWidth());
         }
-        return imageNew;
+        return png(imageNew);
     }
 
     public static BufferedImage watermarking(BufferedImage origin, BufferedImage water) {
@@ -87,7 +89,8 @@ public class ImageUtil {
         graphics.drawImage(back,0,0,null);
         //在底图上画第二张图
         graphics.drawImage(font,0,0,null);
-        return image;
+
+        return png(image);
     }
 
     private static int[] getRgb(BufferedImage bufferedImage){
