@@ -4,6 +4,8 @@ import static java.awt.Image.SCALE_SMOOTH;
 
 import cn.hutool.core.img.ImgUtil;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Transparency;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -18,9 +20,15 @@ import net.coobird.thumbnailator.geometry.Positions;
 public class ImageUtil {
 
     public static BufferedImage readFromPath(String path){
-        BufferedImage read;
-        read = ImgUtil.read(path);
-        return ImgUtil.toBufferedImage(read.getScaledInstance(45, 45, SCALE_SMOOTH));
+        BufferedImage img = ImgUtil.read(path);
+        img = ImgUtil.toBufferedImage(ImgUtil.scale(img,256,160));
+        BufferedImage bufImg = new BufferedImage(img.getWidth(), img.getHeight(), BufferedImage.TYPE_INT_RGB);
+        Graphics2D graphics = bufImg.createGraphics();
+        bufImg = graphics.getDeviceConfiguration()
+                .createCompatibleImage(img.getWidth(), img.getHeight(), Transparency.TRANSLUCENT);
+        graphics = bufImg.createGraphics();
+        graphics.drawImage(img, 0, 0, null);
+        return bufImg;
     }
 
     public static BufferedImage readFromPath(String path, int width, int height){
