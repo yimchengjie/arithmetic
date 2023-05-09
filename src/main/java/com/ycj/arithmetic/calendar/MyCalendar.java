@@ -58,6 +58,7 @@ public class MyCalendar {
 				blank = ImageUtil.hengxiang(blank, ImageUtil.readFromPath(
 						ResourceUtil.getResource("pic/blank.png").getPath()));
 			}
+			count = space;
 		}
 		List<BufferedImage> shuxiang = new ArrayList<>();
 		BufferedImage oneWeek = null;
@@ -71,7 +72,11 @@ public class MyCalendar {
 			count++;
 			//判断是不是当前系统的日期时间
 			if (Objects.nonNull(blank)) {
-				oneWeek = ImageUtil.hengxiang(blank, aday);
+				if (Objects.isNull(oneWeek) && i == 1) {
+					oneWeek = ImageUtil.hengxiang(blank, aday);
+				}else {
+					oneWeek = ImageUtil.hengxiang(oneWeek, aday);
+				}
 			} else {
 				if (Objects.isNull(oneWeek)) {
 					oneWeek = aday;
@@ -109,7 +114,7 @@ public class MyCalendar {
 		int month = 5;
 		int day = 0;
 		BufferedImage image = generateCalendar(year, month, day, false);
-		ImageUtil.writeOut(image, "/home/yanchengjie/ycjCoding/arithmetic/src/main/resources/pic/out/"+String.format("%s-%s-%s",year, month, day)+".png");
+		ImageUtil.writeOut(image, "E:\\ycjCoding\\arithmetic\\src\\main\\resources\\pic\\out\\"+String.format("%s-%s-%s",year, month, day)+".png");
 	}
 
 }

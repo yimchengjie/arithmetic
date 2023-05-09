@@ -10,6 +10,7 @@ import java.awt.Transparency;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 import javax.imageio.ImageIO;
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
@@ -48,6 +49,9 @@ public class ImageUtil {
     }
 
     private static BufferedImage mergeBufferedImage(BufferedImage pre, BufferedImage next, int type) {
+        if (Objects.isNull(pre)) {
+            return next;
+        }
         int[] preRgb = getRgb(pre);
         int[] nextRgb = getRgb(next);
         int dstHeight, dstWidth;
